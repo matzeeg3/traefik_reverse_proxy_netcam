@@ -1,1 +1,2 @@
 # traefik_reverse_proxy_netcam
+Detailed Informations in the subfolders

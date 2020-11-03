@@ -13,6 +13,6 @@
 7. Forware Port 443 to the IP of your VM or Raspberry
 8. copy the files to the VM or Raspberry
 9. run the following command inside of the directory you upload the files
-   * sudo docker-compose up -d  
+   * sudo docker-compose up -d
   
 Now you can enjoy your reverse Proxy with LetsEncrypt certificate
