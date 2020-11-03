@@ -1,14 +1,14 @@
 http:
   routers:
     netcam-secure:
-      rule: "Host(`netcam2.**yourdomain**`)"
+      rule: "Host(`netcam.**yourdomain**`)"
       entryPoints:
         - "web-secure"
       service: netcam
       tls:
         certresolver: myhttpchallenge
     netcam:
-      rule: "Host(`netcam2.**yourdomain**`)"
+      rule: "Host(`netcam.**yourdomain**`)"
       entryPoints:
         - "web"
       service: netcam

@@ -30,7 +30,7 @@ services:
       - "traefik.http.routers.dashboard-secured.tls=true"
       - "traefik.http.routers.dashboard-secured.tls.certresolver=myhttpchallenge"
       - "traefik.http.services.dashboard.loadbalancer.server.port=8080"
-      - "traefik.http.middlewares.authtraefik.basicauth.users=admin:**pwhash**"
+      - "traefik.http.middlewares.authtraefik.basicauth.users=**admin:pwhash**"
       - "traefik.http.routers.dashboard-secured.middlewares=authtraefik"
     expose:
       - 8080
