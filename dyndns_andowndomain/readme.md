@@ -21,5 +21,5 @@
 12. copy the files to the VM or Raspberry
 13. run the following command inside of the directory you upload the files
    * sudo docker-compose up -d
-  s 
+   
 Now you can enjoy your reverse Proxy with LetsEncrypt certificate
