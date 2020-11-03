@@ -1,0 +1,27 @@
+http:
+  routers:
+    netcam-secure:
+      rule: "Host(`netcam2.**yourdomain**`)"
+      entryPoints:
+        - "web-secure"
+      service: netcam
+      tls:
+        certresolver: myhttpchallenge
+    netcam:
+      rule: "Host(`netcam2.**yourdomain**`)"
+      entryPoints:
+        - "web"
+      service: netcam
+      middlewares:
+        - "redirect-to-https"
+
+  services:
+    netcam:
+      loadBalancer:
+        servers:
+          - url: "http://**netcamip**:8100"
+
+  middlewares:
+    redirect-to-https:
+      redirectScheme:
+        scheme: https
