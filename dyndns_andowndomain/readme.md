@@ -22,4 +22,4 @@
 13. run the following command inside of the directory you upload the files
    * sudo docker-compose up -d
    
-Now you can enjoy your reverse Proxy with LetsEncrypt certificate
+Now you can enjoy your reverse Proxy with LetsEncrypt certificate.
