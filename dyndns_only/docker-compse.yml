@@ -1,0 +1,29 @@
+version: "3.3"
+
+services:
+
+  traefik:
+    image: "traefik"
+    container_name: "traefik"
+    restart: always
+    command:
+      - "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.web-secure.address=:443"
+      - "--certificatesresolvers.myhttpchallenge.acme.httpchallenge=true"
+      - "--certificatesresolvers.myhttpchallenge.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.myhttpchallenge.acme.email=**youremail@here.com**"
+      - "--certificatesresolvers.myhttpchallenge.acme.storage=/letsencrypt/acme.json"
+      - "--providers.file.filename=/etc/traefik/dyn-conf.yml"
+      - "--serverstransport.insecureskipverify=true"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./traefik/letsencrypt:/letsencrypt"
+      - "./dyn-conf.yml:/etc/traefik/dyn-conf.yml"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
